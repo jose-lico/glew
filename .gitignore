@@ -1,0 +1,10 @@
+# build & intermediates directory
+bin
+bin-int
+
+# visual studio stuff
+.vs
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
