@@ -1,12 +1,12 @@
-workspace "glew"
-	architecture "x64"
-	outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
-
-	configurations
-	{
-		"Debug",
-		"Release"
-	}
+-- workspace "glew"
+-- 	architecture "x64"
+-- 	outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+--
+--	configurations
+--	{
+--		"Debug",
+--		"Release"
+--	}
 
 project "glew"
 	kind "StaticLib"
@@ -26,12 +26,6 @@ project "glew"
 		"include"
 	}
 
-	defines
-	{
-		"GLEW_STATIC",
-		"_CRT_SECURE_NO_WARNINGS"
-	}
-
 	filter "system:linux"
 		pic "On"
 		systemversion "latest"
@@ -39,11 +33,20 @@ project "glew"
 	filter "system:windows"
 		staticruntime "off"
 		systemversion "latest"
+		defines
+		{
+			"GLEW_STATIC",
+			"_CRT_SECURE_NO_WARNINGS"
+		}
 
 	filter "configurations:Debug"
 		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
+		runtime "Release"
+		optimize "On"
+
+	filter "configurations:MinSizeRelease"
 		runtime "Release"
 		optimize "On"
