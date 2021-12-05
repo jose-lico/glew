@@ -31,7 +31,7 @@ project "glew"
 		systemversion "latest"
 
 	filter "system:windows"
-		staticruntime "off"
+		staticruntime "On"
 		systemversion "latest"
 		defines
 		{
