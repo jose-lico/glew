@@ -1,19 +1,12 @@
--- workspace "glew"
--- 	architecture "x64"
--- 	outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
---
---	configurations
---	{
---		"Debug",
---		"Release"
---	}
-
 project "glew"
 	kind "StaticLib"
 	language "C"
+	configmap {
+        ["ReleaseNoImGui"] = "Release"
+    }
 
-	targetdir ("bin/" .. outputDir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputDir .. "/%{prj.name}")
+	targetdir ("%{wks.location}/bin/" .. outputDir .. "/%{prj.name}")
+	objdir ("%{wks.location}/bin-int/" .. outputDir .. "/%{prj.name}")
 
 	files
 	{
@@ -44,9 +37,5 @@ project "glew"
 		symbols "On"
 
 	filter "configurations:Release"
-		runtime "Release"
-		optimize "On"
-
-	filter "configurations:MinSizeRelease"
 		runtime "Release"
 		optimize "On"
