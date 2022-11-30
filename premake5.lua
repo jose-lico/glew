@@ -3,7 +3,7 @@ project "glew"
 	language "C"
 	configmap 
 	{
-		["ReleaseWithInfo"] = "Release"
+		["ReleaseWithInfo"] = "Release",
 		["ReleaseNoImGui"] = "Release"
 	}
 
