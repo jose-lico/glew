@@ -22,7 +22,6 @@ project "glew"
 	}
 
 	filter "system:linux"
-		pic "On"
 		systemversion "latest"
 
 	filter "system:windows"
