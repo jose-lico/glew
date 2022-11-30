@@ -21,9 +21,6 @@ project "glew"
 		"include"
 	}
 
-	filter "system:linux"
-		systemversion "latest"
-
 	filter "system:windows"
 		staticruntime "On"
 		systemversion "latest"
@@ -32,6 +29,9 @@ project "glew"
 			"GLEW_STATIC",
 			"_CRT_SECURE_NO_WARNINGS"
 		}
+
+	filter "system:linux"
+		systemversion "latest"
 
 	filter "configurations:Debug"
 		runtime "Debug"
